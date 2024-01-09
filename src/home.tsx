@@ -6,7 +6,6 @@ import {
 
 import { Dropzone } from '@/components/ui/dropzone';
 import { useEffect, useState } from 'react';
-import axios from "axios";
 
 export default function Home() {
   const [image, setImage] = useState<Blob>();
