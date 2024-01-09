@@ -4,6 +4,7 @@ import { defineConfig } from "vite"
 
 export default defineConfig({
   plugins: [react()],
+  base: "https://chromaticenhancer.github.io/frontend/",
   server: {
     proxy: {
       "/api": {
