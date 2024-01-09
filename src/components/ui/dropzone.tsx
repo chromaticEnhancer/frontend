@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 
 // Define the props expected by the Dropzone component
 interface DropzoneProps {
-    onChange: React.Dispatch<React.SetStateAction<string[]>>;
+    onChange: React.Dispatch<React.SetStateAction<Blob>>;
     className?: string;
     fileExtensions?: string[];
 }
@@ -55,10 +55,8 @@ export function Dropzone({
         }
 
         const fileSizeInKB = Math.round(uploadedFile.size / 1024); // Convert to KB
-
-        const fileList = Array.from(files).map((file) => URL.createObjectURL(file));
-        onChange((prevFiles) => [...prevFiles, ...fileList]);
-
+        //  change onChange to set blob
+        onChange(uploadedFile);
         // Display file information
         setFileInfo(`Uploaded file: ${uploadedFile.name} (${fileSizeInKB} KB)`);
         setError(null); // Reset error state
