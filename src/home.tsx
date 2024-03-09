@@ -30,12 +30,19 @@ export default function Home() {
     }
   }, [image])
 
+  function newimage(){
+    if(image){
+      setImage(undefined);
+      // setCimg(undefined);
+    }
+  }
+
   return (
     <ResizablePanelGroup
       direction="horizontal"
       className="max-h-screen w-max rounded-lg border"
     >
-      <ResizablePanel defaultSize={50}>
+      <ResizablePanel defaultSize={50} onClick={newimage}>
         <div className="flex h-screen items-center justify-center p-6">
           {image ? <img className="max-h-screen w-auto" src={URL.createObjectURL(image)} />
             :

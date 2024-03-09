@@ -4,11 +4,10 @@ import { defineConfig } from "vite"
 
 export default defineConfig({
   plugins: [react()],
-  base: "https://chromaticenhancer.github.io/frontend/",
   server: {
     proxy: {
       "/api": {
-        target: "http://127.0.0.1:8000",
+        target: "http://0.0.0.0:8000",
         changeOrigin: true,
         secure: false,
         ws: true,
